@@ -16,7 +16,7 @@ export async function updatedScoreCard(userId, score) {
 }
 
 export async function getScore(userId) {
-    let rank = await client.zRank('test_sorted_list', userId);
+    let rank = await client.zRevRank('test_sorted_list', userId);
     const score = await client.zScore('test_sorted_list', userId);
     
     if( rank != null)

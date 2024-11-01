@@ -4,6 +4,10 @@ import express from  'express';
 
 const app = express();
 
+app.get('/', async (req, res) => {
+  res.send('Successful response.');
+});
+
 app.get('/updateScore/:userId/:score', async (req, res) => {
   await updatedScoreCard(req.params.userId, req.params.score);
   res.send('Successful response.');
